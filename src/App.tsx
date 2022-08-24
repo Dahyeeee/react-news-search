@@ -1,10 +1,24 @@
 import React from "react";
-import "./App.css";
-
-console.log(process.env.REACT_APP_API_KEY);
+import { Grommet } from "grommet";
+import NewsFeed from "./page/NewsFeed";
+const theme = {
+  global: {
+    font: {
+      family: "Roboto",
+      size: "18px",
+      height: "20px",
+    },
+  },
+};
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <Grommet theme={theme}>
+        <NewsFeed />
+      </Grommet>
+    </div>
+  );
 }
 
 export default App;
