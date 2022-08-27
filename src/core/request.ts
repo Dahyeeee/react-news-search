@@ -1,3 +1,4 @@
+import { Article } from "../types";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 export const request = async (word: string) => {
@@ -7,8 +8,12 @@ export const request = async (word: string) => {
   let result: [] = await fetch(url(word))
     .then((res) => res.json())
     .then((res) => {
-      console.log(res.response.docs);
-      return res.response.docs;
+      let outcome = res.response.docs;
+      outcome = outcome.map((each: Article) => {
+        return { ...each, clipped: false };
+      });
+      console.log(outcome);
+      return outcome;
     });
 
   return result;

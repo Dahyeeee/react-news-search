@@ -7,6 +7,7 @@ export default function Articles(props: any) {
     pub_date,
     web_url,
     headline: { main },
+    clipped,
   } = props.article;
 
   return (
@@ -18,7 +19,10 @@ export default function Articles(props: any) {
       <div data-set={_id}>
         <div>{main}</div>
         <div>{pub_date.slice(0, 10)}</div>
-        <Button label="clip this article" margin={{ right: "10px" }}></Button>
+        <Button
+          label={clipped ? "unclip this article" : "clip this article"}
+          margin={{ right: "10px" }}
+        ></Button>
         <a href={web_url} target="_blanck">
           <Button label="see detail"></Button>
         </a>
